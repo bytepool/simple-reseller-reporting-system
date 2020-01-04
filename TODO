@@ -1,0 +1,7 @@
+TODO:
+- Rename functions "is_target_X" to "is_date_in_target_X", and move them to utils. 
+
+FUTURE:
+- Add internationalization and localization
+- Add GUI
+- ...
