@@ -97,7 +97,7 @@ def main():
                 if (util.is_target_month(date, target_month, days)):
                     cur_product = sheet["E" + str(row)].value
                     
-                    if (cur_product in products): # own products sold
+                    if (cur_product in products.product_categories): # own products sold
                         if (product == cur_product):
                             variant = sheet["F" + str(row)].value
                             amount = sheet["H" + str(row)].value
@@ -141,12 +141,12 @@ def main():
         else: # everything else has 25% VAT
             VAT = 0.25
     
-        if (product == products.fika_category or product == prodcuts.kh_category
+        if (product == products.fika_category or product == products.kh_category
             or product == products.hyllhyra_category):
             out_row_count = out_row_count + 1 # skip a row to have a space between categories?
     
         # A = Produkt, B = Variant, C = Items, D = Sales, E = VAT, G = Sales without VAT
-        if product == prodcuts.kh_category:
+        if product == products.kh_category:
             out_ws["A" + str(out_row_count)] = "KH - Begangnade varor"
         else:
             out_ws["A" + str(out_row_count)] = product

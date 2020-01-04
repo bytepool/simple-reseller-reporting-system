@@ -30,7 +30,7 @@ import lib_srrs_util as util
 
 
 def locate_input_files():
-    sales_dir = os.path.join(khconfig.sales_dir_fqn, str(khconfig.target_year))
+    sales_dir = os.path.join(config.sales_dir_fqn, str(config.target_year))
     input_files = [f for f in os.listdir(sales_dir) if os.path.isfile(os.path.join(sales_dir, f))]
 
     print("\nSearching for sales in: " + str(input_files))
@@ -94,7 +94,7 @@ def sum_sales(shelfs, input_sheets, target_week, days):
         # row F = variant, row H = amount, row K = price
         for sheet in input_sheets:
             # iterate over all cells that contain data
-            for row in range(khconfig.sales_first_data_row, sheet.max_row + 1):
+            for row in range(config.sales_first_data_row, sheet.max_row + 1):
                 date_str = sheet["A" + str(row)].value
                 date = datetime.datetime.strptime(date_str, "%Y-%m-%d")
         
@@ -132,8 +132,8 @@ def write_sales(shelfs, target_week, sales, out_ws, out_wb):
         payout = item_sum - round(item_sum * 0.2)
         out_ws["D" + str(row_index)] = payout
 
-    sales_dir = os.path.join(khconfig.sales_dir_fqn, str(khconfig.target_year))
-    out_file = os.path.join(sales_dir, "weekly-summaries", "%s-v%s-sales-summary.xlsx" % (str(khconfig.target_year), '{:02d}'.format(int(target_week))))
+    sales_dir = os.path.join(config.sales_dir_fqn, str(config.target_year))
+    out_file = os.path.join(sales_dir, "weekly-summaries", "%s-v%s-sales-summary.xlsx" % (str(config.target_year), '{:02d}'.format(int(target_week))))
     
     out_wb.save(out_file)
     print("\nData successfully written to {:s}".format(out_file))
@@ -146,7 +146,7 @@ def calc_and_write_sales_summary():
     input_sheets = load_sales_data(input_files)
     shelfs = gen_shelf_strings()
 
-    target_week = util.ask_target_week(str(khconfig.target_year))
+    target_week = util.ask_target_week(str(config.target_year))
 
     out_wb = openpyxl.Workbook()
     out_ws = create_new_worksheet(out_wb)
