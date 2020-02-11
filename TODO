@@ -2,6 +2,9 @@
 - Add a full description for each script in their headers.
 - Compile a list of all hard-coded file names (mostly sales data from iZettle?)
 
+# Repo
+- Add a template config/ directory, including srrs_config.py and products.py. 
+
 # Refactoring
 - Rename functions "is_target_X" to "is_date_in_target_X", and move them to utils. 
 
