@@ -1,7 +1,11 @@
-TODO:
+# Documentation
+- Add a full description for each script in their headers.
+- Compile a list of all hard-coded file names (mostly sales data from iZettle?)
+
+# Refactoring
 - Rename functions "is_target_X" to "is_date_in_target_X", and move them to utils. 
 
-FUTURE:
+# Future
 - Add internationalization and localization
 - Add GUI
 - ...
