@@ -175,7 +175,8 @@ def connect_to_server():
         server.login(login_name, passw)
         
     except Exception as e:
-        print(e.args)
+        print("An unexpected error occurred while connecting to the server:", e.args)
+        util.pause()
 
     return server
 
