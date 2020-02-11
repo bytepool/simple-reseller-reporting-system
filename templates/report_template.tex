@@ -1,0 +1,54 @@
+% koma_env.tex
+\documentclass[a4paper,version=last,fromalign=left]{scrlttr2}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage{url}
+ 
+\setkomavar{fromname}{Business Name}
+\setkomavar{fromaddress}{Street Address\\City\\\mbox{}}
+\setkomavar{fromphone}{1234 56789}
+\setkomavar{fromemail}{contact@foo.com}
+\setkomavar{fromurl}{http://www.website.com}
+\setkomavar{fromlogo}{\includegraphics[height=2cm]{\string~//logos/logo}}
+\setkomavar{signature}{Businessowner}
+
+
+\begin{document}
+ 
+\begin{letter}{--FULLNAME--\\--ADDRESS--\\Telefon: --PHONE--\\E-Post: --EMAIL--\\}
+
+\KOMAoptions{fromphone=true,fromfax=false,fromemail=true, fromurl=true, fromlogo=true}
+\setkomavar{subject}{Sales Report}
+\setkomavar{customer}{--CUSTOMERNR--}
+
+\opening{Hi --NAME--,}
+
+Here is a sales report of your sales at Foo. 
+\noindent In week --WEEKNR-- you sold --ITEMS-- items for --SALES-- SEK. After deduction of 20\% commission, you receive a payout of --PAYOUT-- SEK. \\
+
+\begin{align*}
+  \hline
+  \text{Sales} &  & --SALES--      & \text{ SEK} \\
+%  \text{Avdrag}      &  & - \quad--DEDUCTIONS-- & \text{ kr} \\
+  \text{20\% Commission}   &  & - \quad--COMISSION--  & \text{ SEK} \\
+  \hline
+  \hline
+\text{Payout} &   & --PAYOUT-- & \text{ SEK} \\
+  \hline
+\end{align*}
+
+\noindent The money will be paid to your bank account --ACCOUNTNR--. Please double check that the account number is correct. 
+
+\closing{Best regards,}
+%\ps{P.S. }
+%\encl{sales report}
+ 
+\end{letter}
+ 
+\end{document}
