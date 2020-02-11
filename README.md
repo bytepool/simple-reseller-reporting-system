@@ -20,6 +20,9 @@ At the moment, there is no user guide for SRRS, you will have to read the source
 
 All important configuration parameters can be adjusted in config/srrs_config.py, and the variables should be mostly self-explanatory. All scripts should behave accordingly and deviations are bugs. 
 
+### Templates
+
+The templates for the emails (text file) and the reports (LaTeX file) can be found in the templates sub-directory. 
 
 ### Main scripts:
 
